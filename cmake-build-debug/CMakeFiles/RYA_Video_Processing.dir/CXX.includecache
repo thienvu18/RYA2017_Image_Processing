@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/thienvu/CLionProjects/RYA_Video_Processing/main.cpp
+iostream
+-
+fstream
+-
+opencv2/opencv.hpp
+-
+
