@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "TCPClient.h"
 #include <opencv2/opencv.hpp>
 
 #define DEBUG
@@ -11,6 +12,7 @@ using namespace std;
 using namespace cv;
 
 void computeErrors(const Mat &img, double &e_x, double &e_y);
+bool senData(const TCPClient &tcp, const double &e_x, const double &e_y);
 
 int main( )
 {
@@ -18,6 +20,7 @@ int main( )
     fstream fou;
     Mat frame, temp;
     VideoCapture capture;
+    TCPClient tcp;
 
 #ifdef DEBUG
    namedWindow("Thresold", WINDOW_AUTOSIZE);
@@ -30,6 +33,12 @@ int main( )
     if (!fou.is_open())
     {
         cout << "Can not open output file" << endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    if (!tcp.setup("localhost", 1802))
+    {       
+        cout << "Can setup TCP protocol" << endl;
         exit(EXIT_FAILURE);
     }
 
@@ -65,6 +74,7 @@ int main( )
 
         computeErrors(temp, e_x, e_y);
         fou << e_x << " " << e_y << endl;
+        sendData(tcp, e_x, e_y);
         
 #ifdef DEBUG
         waitKey(1);
@@ -102,4 +112,13 @@ void computeErrors(const Mat &img, double &e_x, double &e_y)
 
     e_x = moment.m10/moment.m00 - WIDTH;
     e_y = moment.m01/moment.m00 - HEIGHT;
+}
+
+bool senData(const TCPClient &tcp, const double &e_x, const double &e_y)
+{
+    string data = to_string(e_x);
+    data += " ";
+    data += to_string(e_y);
+    
+    return tcp.Send(data);
 }
