@@ -48,10 +48,10 @@ RM = /opt/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/thienvu/CLionProjects/RYA_Video_Processing
+CMAKE_SOURCE_DIR = /home/thienvu/Documents/RYA2017_Image_Processing
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug
+CMAKE_BINARY_DIR = /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/CMakeFiles /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ RYA_Video_Processing/fast:
 	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/build
 .PHONY : RYA_Video_Processing/fast
 
+TCPClient.o: TCPClient.cpp.o
+
+.PHONY : TCPClient.o
+
+# target to build an object file
+TCPClient.cpp.o:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o
+.PHONY : TCPClient.cpp.o
+
+TCPClient.i: TCPClient.cpp.i
+
+.PHONY : TCPClient.i
+
+# target to preprocess a source file
+TCPClient.cpp.i:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.i
+.PHONY : TCPClient.cpp.i
+
+TCPClient.s: TCPClient.cpp.s
+
+.PHONY : TCPClient.s
+
+# target to generate assembly for a file
+TCPClient.cpp.s:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.s
+.PHONY : TCPClient.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... RYA_Video_Processing"
+	@echo "... TCPClient.o"
+	@echo "... TCPClient.i"
+	@echo "... TCPClient.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

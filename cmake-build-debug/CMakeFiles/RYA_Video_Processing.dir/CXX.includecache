@@ -6,11 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/thienvu/CLionProjects/RYA_Video_Processing/main.cpp
+/home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.cpp
+TCPClient.h
+/home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.h
+
+/home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.h
+iostream
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+netdb.h
+-
+vector
+-
+
+/home/thienvu/Documents/RYA2017_Image_Processing/main.cpp
 iostream
 -
 fstream
 -
+TCPClient.h
+/home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.h
 opencv2/opencv.hpp
 -
 

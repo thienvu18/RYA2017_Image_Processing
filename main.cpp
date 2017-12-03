@@ -3,16 +3,16 @@
 #include "TCPClient.h"
 #include <opencv2/opencv.hpp>
 
-#define DEBUG
-
-#define WIDTH 320
-#define HEIGHT 240
+//#define DEBUG
 
 using namespace std;
 using namespace cv;
 
+double xCenter = 0.0;
+double yCenter = 0.0;
+
 void computeErrors(const Mat &img, double &e_x, double &e_y);
-bool senData(const TCPClient &tcp, const double &e_x, const double &e_y);
+//bool sendData(TCPClient &tcp, const double &e_x, const double &e_y);
 
 int main( )
 {
@@ -20,7 +20,7 @@ int main( )
     fstream fou;
     Mat frame, temp;
     VideoCapture capture;
-    TCPClient tcp;
+    //TCPClient tcp;
 
 #ifdef DEBUG
    namedWindow("Thresold", WINDOW_AUTOSIZE);
@@ -36,13 +36,13 @@ int main( )
         exit(EXIT_FAILURE);
     }
     
-    if (!tcp.setup("localhost", 1802))
-    {       
-        cout << "Can setup TCP protocol" << endl;
-        exit(EXIT_FAILURE);
-    }
+//    if (!tcp.setup("localhost", 1802))
+//    {
+//        cout << "Can setup TCP protocol" << endl;
+//        exit(EXIT_FAILURE);
+//    }
 
-    capture.open("Video 1.wmv");
+    capture.open("Video.wmv");
     if (!capture.isOpened())
     {
         cout << "Can not open camera/video" << endl;
@@ -50,6 +50,9 @@ int main( )
     }
 
     capture.read(frame);
+
+    xCenter= frame.size().width / 2;
+    yCenter = frame.size().height / 2;
 
     while (!frame.empty())
     {
@@ -74,7 +77,7 @@ int main( )
 
         computeErrors(temp, e_x, e_y);
         fou << e_x << " " << e_y << endl;
-        sendData(tcp, e_x, e_y);
+        //sendData(tcp, e_x, e_y);
         
 #ifdef DEBUG
         waitKey(1);
@@ -94,11 +97,10 @@ void computeErrors(const Mat &img, double &e_x, double &e_y)
     vector< vector<Point> > contours;
     vector<Vec4i> hyerarchy;
 
-    double s = 0, max = 0, iMax = 0;
+    double s = 0.0, max = 0.0, iMax = 0;
     findContours(img, contours, hyerarchy, CV_RETR_TREE, CHAIN_APPROX_NONE);
 
-
-   for( int i = 1; i< contours.size(); i++ )
+   for( int i = 1; i< contours.size(); i++ ) //contour 0 is the frame
    {
        s = contourArea(contours[i], false);
        if (s > max)
@@ -108,17 +110,17 @@ void computeErrors(const Mat &img, double &e_x, double &e_y)
        }
    }
 
-    Moments moment = moments(contours[1], true);
+    Moments moment = moments(contours[iMax], true);
 
-    e_x = moment.m10/moment.m00 - WIDTH;
-    e_y = moment.m01/moment.m00 - HEIGHT;
+    e_x = moment.m10/moment.m00 - xCenter;
+    e_y = moment.m01/moment.m00 - yCenter;
 }
 
-bool senData(const TCPClient &tcp, const double &e_x, const double &e_y)
-{
-    string data = to_string(e_x);
-    data += " ";
-    data += to_string(e_y);
-    
-    return tcp.Send(data);
-}
+//bool sendData(TCPClient &tcp, const double &e_x, const double &e_y)
+//{
+//    string data = to_string(e_x);
+//    data += " ";
+//    data += to_string(e_y);
+//
+//    return tcp.Send(data);
+//}

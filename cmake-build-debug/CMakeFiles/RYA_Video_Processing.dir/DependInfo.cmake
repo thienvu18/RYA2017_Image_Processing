@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/thienvu/CLionProjects/RYA_Video_Processing/main.cpp" "/home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
+  "/home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.cpp" "/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o"
+  "/home/thienvu/Documents/RYA2017_Image_Processing/main.cpp" "/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

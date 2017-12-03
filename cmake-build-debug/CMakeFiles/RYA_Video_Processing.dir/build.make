@@ -43,10 +43,10 @@ RM = /opt/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/thienvu/CLionProjects/RYA_Video_Processing
+CMAKE_SOURCE_DIR = /home/thienvu/Documents/RYA2017_Image_Processing
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug
+CMAKE_BINARY_DIR = /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/RYA_Video_Processing.dir/depend.make
@@ -57,18 +57,42 @@ include CMakeFiles/RYA_Video_Processing.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/RYA_Video_Processing.dir/flags.make
 
+CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o: CMakeFiles/RYA_Video_Processing.dir/flags.make
+CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o: ../TCPClient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o -c /home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.cpp
+
+CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.cpp > CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.i
+
+CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thienvu/Documents/RYA2017_Image_Processing/TCPClient.cpp -o CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.s
+
+CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.requires:
+
+.PHONY : CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.requires
+
+CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.provides: CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.requires
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.provides.build
+.PHONY : CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.provides
+
+CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.provides.build: CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o
+
+
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.o: CMakeFiles/RYA_Video_Processing.dir/flags.make
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RYA_Video_Processing.dir/main.cpp.o -c /home/thienvu/CLionProjects/RYA_Video_Processing/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RYA_Video_Processing.dir/main.cpp.o -c /home/thienvu/Documents/RYA2017_Image_Processing/main.cpp
 
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RYA_Video_Processing.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thienvu/CLionProjects/RYA_Video_Processing/main.cpp > CMakeFiles/RYA_Video_Processing.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thienvu/Documents/RYA2017_Image_Processing/main.cpp > CMakeFiles/RYA_Video_Processing.dir/main.cpp.i
 
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RYA_Video_Processing.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thienvu/CLionProjects/RYA_Video_Processing/main.cpp -o CMakeFiles/RYA_Video_Processing.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thienvu/Documents/RYA2017_Image_Processing/main.cpp -o CMakeFiles/RYA_Video_Processing.dir/main.cpp.s
 
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.o.requires:
 
@@ -83,11 +107,13 @@ CMakeFiles/RYA_Video_Processing.dir/main.cpp.o.provides.build: CMakeFiles/RYA_Vi
 
 # Object files for target RYA_Video_Processing
 RYA_Video_Processing_OBJECTS = \
+"CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o" \
 "CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
 
 # External object files for target RYA_Video_Processing
 RYA_Video_Processing_EXTERNAL_OBJECTS =
 
+RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o
 RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/main.cpp.o
 RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/build.make
 RYA_Video_Processing: /usr/lib/libopencv_dnn.so.3.3.1
@@ -108,7 +134,7 @@ RYA_Video_Processing: /usr/lib/libopencv_imgcodecs.so.3.3.1
 RYA_Video_Processing: /usr/lib/libopencv_imgproc.so.3.3.1
 RYA_Video_Processing: /usr/lib/libopencv_core.so.3.3.1
 RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable RYA_Video_Processing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable RYA_Video_Processing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RYA_Video_Processing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -116,6 +142,7 @@ CMakeFiles/RYA_Video_Processing.dir/build: RYA_Video_Processing
 
 .PHONY : CMakeFiles/RYA_Video_Processing.dir/build
 
+CMakeFiles/RYA_Video_Processing.dir/requires: CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o.requires
 CMakeFiles/RYA_Video_Processing.dir/requires: CMakeFiles/RYA_Video_Processing.dir/main.cpp.o.requires
 
 .PHONY : CMakeFiles/RYA_Video_Processing.dir/requires
@@ -125,6 +152,6 @@ CMakeFiles/RYA_Video_Processing.dir/clean:
 .PHONY : CMakeFiles/RYA_Video_Processing.dir/clean
 
 CMakeFiles/RYA_Video_Processing.dir/depend:
-	cd /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/thienvu/CLionProjects/RYA_Video_Processing /home/thienvu/CLionProjects/RYA_Video_Processing /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug /home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/CMakeFiles/RYA_Video_Processing.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/thienvu/Documents/RYA2017_Image_Processing /home/thienvu/Documents/RYA2017_Image_Processing /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug /home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles/RYA_Video_Processing.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/RYA_Video_Processing.dir/depend
 

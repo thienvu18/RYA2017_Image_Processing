@@ -1,4 +1,4 @@
-# Install script for directory: /home/thienvu/CLionProjects/RYA_Video_Processing
+# Install script for directory: /home/thienvu/Documents/RYA2017_Image_Processing
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/thienvu/CLionProjects/RYA_Video_Processing/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
