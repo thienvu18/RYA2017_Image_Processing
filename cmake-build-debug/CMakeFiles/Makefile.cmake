@@ -33,7 +33,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/clion-2017.2.3/bin/cmake/share/cmake-3.8/Modules/ProcessorCount.cmake"
   "/usr/share/OpenCV/OpenCVConfig-version.cmake"
   "/usr/share/OpenCV/OpenCVConfig.cmake"
-  "/usr/share/OpenCV/OpenCVModules-release.cmake"
+  "/usr/share/OpenCV/OpenCVModules-realease.cmake"
   "/usr/share/OpenCV/OpenCVModules.cmake"
   )
 

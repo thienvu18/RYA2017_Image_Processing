@@ -107,7 +107,7 @@
 		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/../../../../usr/share/OpenCV/OpenCVModules.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/../../../../usr/share/OpenCV/OpenCVModules-release.cmake">
+		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/../../../../usr/share/OpenCV/OpenCVModules-realease.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\share\OpenCV\"/>
 		</Unit>
 	</Project>
