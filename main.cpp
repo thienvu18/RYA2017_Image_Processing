@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "TCPClient.h"
+#include "lib/TCPClient/TCPClient.h"
 #include <opencv2/opencv.hpp>
 
 //#define DEBUG

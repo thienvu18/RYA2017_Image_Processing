@@ -123,32 +123,32 @@ RYA_Video_Processing/fast:
 	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/build
 .PHONY : RYA_Video_Processing/fast
 
-TCPClient.o: TCPClient.cpp.o
+lib/TCPClient/TCPClient.o: lib/TCPClient/TCPClient.cpp.o
 
-.PHONY : TCPClient.o
+.PHONY : lib/TCPClient/TCPClient.o
 
 # target to build an object file
-TCPClient.cpp.o:
-	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.o
-.PHONY : TCPClient.cpp.o
+lib/TCPClient/TCPClient.cpp.o:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.o
+.PHONY : lib/TCPClient/TCPClient.cpp.o
 
-TCPClient.i: TCPClient.cpp.i
+lib/TCPClient/TCPClient.i: lib/TCPClient/TCPClient.cpp.i
 
-.PHONY : TCPClient.i
+.PHONY : lib/TCPClient/TCPClient.i
 
 # target to preprocess a source file
-TCPClient.cpp.i:
-	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.i
-.PHONY : TCPClient.cpp.i
+lib/TCPClient/TCPClient.cpp.i:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.i
+.PHONY : lib/TCPClient/TCPClient.cpp.i
 
-TCPClient.s: TCPClient.cpp.s
+lib/TCPClient/TCPClient.s: lib/TCPClient/TCPClient.cpp.s
 
-.PHONY : TCPClient.s
+.PHONY : lib/TCPClient/TCPClient.s
 
 # target to generate assembly for a file
-TCPClient.cpp.s:
-	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/TCPClient.cpp.s
-.PHONY : TCPClient.cpp.s
+lib/TCPClient/TCPClient.cpp.s:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.s
+.PHONY : lib/TCPClient/TCPClient.cpp.s
 
 main.o: main.cpp.o
 
@@ -186,9 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... RYA_Video_Processing"
-	@echo "... TCPClient.o"
-	@echo "... TCPClient.i"
-	@echo "... TCPClient.s"
+	@echo "... lib/TCPClient/TCPClient.o"
+	@echo "... lib/TCPClient/TCPClient.i"
+	@echo "... lib/TCPClient/TCPClient.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
