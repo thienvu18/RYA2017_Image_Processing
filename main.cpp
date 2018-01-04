@@ -1,9 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include "lib/TCPClient/TCPClient.h"
+#include "lib/mavlink/v2.0/common/mavlink.h"
 #include <opencv2/opencv.hpp>
-
-//#define DEBUG
 
 using namespace std;
 using namespace cv;
@@ -12,7 +11,7 @@ double xCenter = 0.0;
 double yCenter = 0.0;
 
 void computeErrors(const Mat &img, double &e_x, double &e_y);
-bool sendData(TCPClient &tcp, const double &e_x, const double &e_y);
+bool sendData(TCPClient &tcp, const double &e_x, const double &e_y, const double &e_z = 0.0);
 
 int main( )
 {
@@ -21,13 +20,6 @@ int main( )
     Mat frame, temp;
     VideoCapture capture;
     TCPClient tcp;
-
-#ifdef DEBUG
-   namedWindow("Thresold", WINDOW_AUTOSIZE);
-   namedWindow("Orginal", WINDOW_AUTOSIZE);
-   namedWindow("Gray", WINDOW_AUTOSIZE);
-   namedWindow("Gauss", WINDOW_AUTOSIZE);
-#endif
 
     fou.open("out.txt", ios::out);
     if (!fou.is_open())
@@ -42,7 +34,7 @@ int main( )
         exit(EXIT_FAILURE);
     }
 
-    capture.open("Video.wmv", CV_CAP_FFMPEG );
+    capture.open(1, CV_CAP_FFMPEG );
     if (!capture.isOpened())
     {
         cout << "Can not open camera/video" << endl;
@@ -56,33 +48,12 @@ int main( )
 
     while (!frame.empty())
     {
-#ifdef DEBUG
-        imshow("Orginal", frame);
-#endif
-
         cvtColor(frame, temp, CV_BGR2GRAY);
-#ifdef DEBUG
-        imshow("Gray", temp);
-#endif
-
         GaussianBlur(temp, temp, Size(15, 15), 0, 0);
-#ifdef DEBUG
-        imshow("Gauss", temp);
-#endif
-
         threshold(temp, temp, 85, 255,THRESH_BINARY);
-#ifdef DEBUG
-        imshow("Thresold", temp);
-#endif
-
         computeErrors(temp, e_x, e_y);
         fou << e_x << " " << e_y << endl;
         sendData(tcp, e_x, e_y);
-        
-#ifdef DEBUG
-        waitKey(1);
-#endif
-
         capture.read(frame);
     }
 
@@ -116,11 +87,13 @@ void computeErrors(const Mat &img, double &e_x, double &e_y)
     e_y = moment.m01/moment.m00 - yCenter;
 }
 
-bool sendData(TCPClient &tcp, const double &e_x, const double &e_y)
+bool sendData(TCPClient &tcp, const double &e_x, const double &e_y, const double &e_z)
 {
-    string data = to_string(e_x);
-    data += " ";
-    data += to_string(e_y);
+    mavlink_message_t msg;
+    uint8_t sendBuff[MAVLINK_MAX_PACKET_LEN];
 
-    return tcp.Send(data);
+    mavlink_msg_attitude_err_icv_pack(269, 269, &msg, e_x, e_y, e_z);
+    mavlink_msg_to_send_buffer(sendBuff, &msg);
+
+    return tcp.Send((char*)sendBuff);
 }
