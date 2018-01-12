@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include "lib/TCPClient/TCPClient.h"
 #include "lib/mavlink/v2.0/common/mavlink.h"
 #include <opencv2/opencv.hpp>
@@ -7,93 +6,105 @@
 using namespace std;
 using namespace cv;
 
-double xCenter = 0.0;
-double yCenter = 0.0;
+const int FRAME_WIDTH = 213;
+const int FRAME_HEIGHT = 160;
+const float INV_SCALE_FACTOR = 640/FRAME_WIDTH;
 
-void computeErrors(const Mat &img, double &e_x, double &e_y);
-bool sendData(TCPClient &tcp, const double &e_x, const double &e_y, const double &e_z = 0.0);
+const int MIN_OBJECT_AREA = FRAME_HEIGHT*FRAME_WIDTH/25;
 
-int main( )
+bool sendData(TCPClient &tcp, const uint16_t &x, const uint16_t &y);
+
+int main(int argc, char** argv)
 {
-    double e_x = 0.0, e_y = 0.0;
-    fstream fou;
-    Mat frame, temp;
-    VideoCapture capture;
     TCPClient tcp;
 
-    fou.open("out.txt", ios::out);
-    if (!fou.is_open())
+    Mat frame, temp;
+    VideoCapture capture;
+
+    vector< vector<Point> > contours;
+    vector<Vec4i> hyerarchy;
+
+    double s = 0.0, max = 0.0;
+    uint32_t iMax = 0;
+
+    if (argc < 3)
     {
-        cout << "Can not open output file" << endl;
         exit(EXIT_FAILURE);
     }
-    
-    if (!tcp.setup("127.0.0.1", 11999))
+    const int16_t THRESHOLD_MIN = atoi(argv[1]);
+    const int16_t THRESHOLD_MAX = atoi(argv[2]);
+
+    while (!tcp.setup("127.0.0.1", 11999))
     {
-        cout << "Can setup TCP protocol" << endl;
-        exit(EXIT_FAILURE);
+        cout << "Can not setup TCP protocol, retrying..." << endl;
     }
 
-    capture.open(1, CV_CAP_FFMPEG );
-    if (!capture.isOpened())
+    capture.open(0);
+    while (!capture.isOpened())
     {
-        cout << "Can not open camera/video" << endl;
-        exit(EXIT_FAILURE);
+        cout << "Can not open camera/video, retrying..." << endl;
     }
+    capture.set(CV_CAP_PROP_FPS, 30);
+    capture.set(CV_CAP_PROP_FRAME_WIDTH,FRAME_WIDTH);
+    capture.set(CV_CAP_PROP_FRAME_HEIGHT,FRAME_HEIGHT);
+
+    int num_frames;
+    time_t start,end;
+    time(&start);
 
     capture.read(frame);
-
-    xCenter= frame.size().width / 2;
-    yCenter = frame.size().height / 2;
 
     while (!frame.empty())
     {
         cvtColor(frame, temp, CV_BGR2GRAY);
         GaussianBlur(temp, temp, Size(15, 15), 0, 0);
-        threshold(temp, temp, 85, 255,THRESH_BINARY);
-        computeErrors(temp, e_x, e_y);
-        fou << e_x << " " << e_y << endl;
-        sendData(tcp, e_x, e_y);
+        threshold(temp, temp, THRESHOLD_MIN, THRESHOLD_MAX,THRESH_BINARY);
+
+        findContours(temp, contours, hyerarchy, CV_RETR_TREE, CHAIN_APPROX_NONE);
+        for( int i = 1; i< contours.size(); i++ ) //contour 0 is the frame
+        {
+            s = contourArea(contours[i], false);
+            if (s > max)
+            {
+                max = s;
+                iMax = i;
+            }
+        }
+        if (max > MIN_OBJECT_AREA)
+        {
+            Moments mu = moments(contours[iMax], true);
+            sendData(tcp, static_cast<uint16_t>(INV_SCALE_FACTOR * mu.m10/mu.m00) , static_cast<uint16_t>(INV_SCALE_FACTOR * mu.m01/mu.m00));
+        }
+        else sendData(tcp, 65001, 65001);
+
+
+
         capture.read(frame);
+
+        ++num_frames;
+        time(&end);
+        double seconds = difftime(end, start);
+        if (seconds >= 1.0)
+        {
+            cout << "Frame per second: " << num_frames << endl;
+            time(&start);
+            num_frames = 0;
+        }
     }
 
     capture.release();
-    fou.close();
 
     return 0;
 }
 
-void computeErrors(const Mat &img, double &e_x, double &e_y)
-{
-    vector< vector<Point> > contours;
-    vector<Vec4i> hyerarchy;
-
-    double s = 0.0, max = 0.0, iMax = 0;
-    findContours(img, contours, hyerarchy, CV_RETR_TREE, CHAIN_APPROX_NONE);
-
-   for( int i = 1; i< contours.size(); i++ ) //contour 0 is the frame
-   {
-       s = contourArea(contours[i], false);
-       if (s > max)
-       {
-           max = s;
-           iMax = i;
-       }
-   }
-
-    Moments moment = moments(contours[iMax], true);
-
-    e_x = moment.m10/moment.m00 - xCenter;
-    e_y = moment.m01/moment.m00 - yCenter;
-}
-
-bool sendData(TCPClient &tcp, const double &e_x, const double &e_y, const double &e_z)
+bool sendData(TCPClient &tcp, const uint16_t &x, const uint16_t &y)
 {
     mavlink_message_t msg;
     uint8_t sendBuff[MAVLINK_MAX_PACKET_LEN];
 
-    mavlink_msg_attitude_err_icv_pack(269, 269, &msg, e_x, e_y, e_z);
-    mavlink_msg_to_send_buffer(sendBuff, &msg);
+    mavlink_msg_coord_icv_pack(0, 0, &msg, x, y);
+    uint16_t len = mavlink_msg_to_send_buffer(sendBuff, &msg);
 
-    return tcp.Send((char*)sendBuff);
+    //cout << "n bytes: " << len << endl;
+    return tcp.Send(sendBuff, len);
 }

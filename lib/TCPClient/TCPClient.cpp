@@ -48,9 +48,9 @@ bool TCPClient::setup(string address , int port)
     return true;
 }
 
-bool TCPClient::Send(string data)
+bool TCPClient::Send(uint8_t* data, uint16_t len)
 {
-    if( send(sock , data.c_str() , strlen( data.c_str() ) , 0) < 0)
+    if( send(sock , data , len , 0) < 0)
     {
         cout << "Send failed : " << data << endl;
         return false;

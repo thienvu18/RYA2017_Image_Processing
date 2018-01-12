@@ -1,8 +1,8 @@
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <unistd.h>
-#include <string.h>
+#include <cstring>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -24,7 +24,7 @@ class TCPClient
   public:
     TCPClient();
     bool setup(string address, int port);
-    bool Send(string data);
+    bool Send(uint8_t* data, uint16_t len);
     string receive(int size = 4096);
     string read();
 };
