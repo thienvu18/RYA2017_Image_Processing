@@ -123,6 +123,33 @@ RYA_Video_Processing/fast:
 	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/build
 .PHONY : RYA_Video_Processing/fast
 
+Object.o: Object.cpp.o
+
+.PHONY : Object.o
+
+# target to build an object file
+Object.cpp.o:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o
+.PHONY : Object.cpp.o
+
+Object.i: Object.cpp.i
+
+.PHONY : Object.i
+
+# target to preprocess a source file
+Object.cpp.i:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/Object.cpp.i
+.PHONY : Object.cpp.i
+
+Object.s: Object.cpp.s
+
+.PHONY : Object.s
+
+# target to generate assembly for a file
+Object.cpp.s:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/Object.cpp.s
+.PHONY : Object.cpp.s
+
 lib/TCPClient/TCPClient.o: lib/TCPClient/TCPClient.cpp.o
 
 .PHONY : lib/TCPClient/TCPClient.o
@@ -149,6 +176,33 @@ lib/TCPClient/TCPClient.s: lib/TCPClient/TCPClient.cpp.s
 lib/TCPClient/TCPClient.cpp.s:
 	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.s
 .PHONY : lib/TCPClient/TCPClient.cpp.s
+
+lib/Utility/utility.o: lib/Utility/utility.cpp.o
+
+.PHONY : lib/Utility/utility.o
+
+# target to build an object file
+lib/Utility/utility.cpp.o:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o
+.PHONY : lib/Utility/utility.cpp.o
+
+lib/Utility/utility.i: lib/Utility/utility.cpp.i
+
+.PHONY : lib/Utility/utility.i
+
+# target to preprocess a source file
+lib/Utility/utility.cpp.i:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.i
+.PHONY : lib/Utility/utility.cpp.i
+
+lib/Utility/utility.s: lib/Utility/utility.cpp.s
+
+.PHONY : lib/Utility/utility.s
+
+# target to generate assembly for a file
+lib/Utility/utility.cpp.s:
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.s
+.PHONY : lib/Utility/utility.cpp.s
 
 main.o: main.cpp.o
 
@@ -186,9 +240,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... RYA_Video_Processing"
+	@echo "... Object.o"
+	@echo "... Object.i"
+	@echo "... Object.s"
 	@echo "... lib/TCPClient/TCPClient.o"
 	@echo "... lib/TCPClient/TCPClient.i"
 	@echo "... lib/TCPClient/TCPClient.s"
+	@echo "... lib/Utility/utility.o"
+	@echo "... lib/Utility/utility.i"
+	@echo "... lib/Utility/utility.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

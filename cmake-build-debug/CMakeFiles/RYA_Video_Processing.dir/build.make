@@ -81,9 +81,57 @@ CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.o.provides: CMak
 CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.o.provides.build: CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.o
 
 
+CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o: CMakeFiles/RYA_Video_Processing.dir/flags.make
+CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o: ../lib/Utility/utility.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o -c /home/thienvu/Documents/RYA2017_Image_Processing/lib/Utility/utility.cpp
+
+CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thienvu/Documents/RYA2017_Image_Processing/lib/Utility/utility.cpp > CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.i
+
+CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thienvu/Documents/RYA2017_Image_Processing/lib/Utility/utility.cpp -o CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.s
+
+CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.requires:
+
+.PHONY : CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.requires
+
+CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.provides: CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.requires
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.provides.build
+.PHONY : CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.provides
+
+CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.provides.build: CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o
+
+
+CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o: CMakeFiles/RYA_Video_Processing.dir/flags.make
+CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o: ../Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o -c /home/thienvu/Documents/RYA2017_Image_Processing/Object.cpp
+
+CMakeFiles/RYA_Video_Processing.dir/Object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RYA_Video_Processing.dir/Object.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thienvu/Documents/RYA2017_Image_Processing/Object.cpp > CMakeFiles/RYA_Video_Processing.dir/Object.cpp.i
+
+CMakeFiles/RYA_Video_Processing.dir/Object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RYA_Video_Processing.dir/Object.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thienvu/Documents/RYA2017_Image_Processing/Object.cpp -o CMakeFiles/RYA_Video_Processing.dir/Object.cpp.s
+
+CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.requires:
+
+.PHONY : CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.requires
+
+CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.provides: CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.requires
+	$(MAKE) -f CMakeFiles/RYA_Video_Processing.dir/build.make CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.provides.build
+.PHONY : CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.provides
+
+CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.provides.build: CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o
+
+
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.o: CMakeFiles/RYA_Video_Processing.dir/flags.make
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RYA_Video_Processing.dir/main.cpp.o -c /home/thienvu/Documents/RYA2017_Image_Processing/main.cpp
 
 CMakeFiles/RYA_Video_Processing.dir/main.cpp.i: cmake_force
@@ -108,12 +156,16 @@ CMakeFiles/RYA_Video_Processing.dir/main.cpp.o.provides.build: CMakeFiles/RYA_Vi
 # Object files for target RYA_Video_Processing
 RYA_Video_Processing_OBJECTS = \
 "CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.o" \
+"CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o" \
+"CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o" \
 "CMakeFiles/RYA_Video_Processing.dir/main.cpp.o"
 
 # External object files for target RYA_Video_Processing
 RYA_Video_Processing_EXTERNAL_OBJECTS =
 
 RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.o
+RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o
+RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o
 RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/main.cpp.o
 RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/build.make
 RYA_Video_Processing: /usr/local/lib/libopencv_stitching.so.3.3.1
@@ -160,7 +212,7 @@ RYA_Video_Processing: /usr/local/lib/libopencv_objdetect.so.3.3.1
 RYA_Video_Processing: /usr/local/lib/libopencv_imgproc.so.3.3.1
 RYA_Video_Processing: /usr/local/lib/libopencv_core.so.3.3.1
 RYA_Video_Processing: CMakeFiles/RYA_Video_Processing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable RYA_Video_Processing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thienvu/Documents/RYA2017_Image_Processing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable RYA_Video_Processing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RYA_Video_Processing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -169,6 +221,8 @@ CMakeFiles/RYA_Video_Processing.dir/build: RYA_Video_Processing
 .PHONY : CMakeFiles/RYA_Video_Processing.dir/build
 
 CMakeFiles/RYA_Video_Processing.dir/requires: CMakeFiles/RYA_Video_Processing.dir/lib/TCPClient/TCPClient.cpp.o.requires
+CMakeFiles/RYA_Video_Processing.dir/requires: CMakeFiles/RYA_Video_Processing.dir/lib/Utility/utility.cpp.o.requires
+CMakeFiles/RYA_Video_Processing.dir/requires: CMakeFiles/RYA_Video_Processing.dir/Object.cpp.o.requires
 CMakeFiles/RYA_Video_Processing.dir/requires: CMakeFiles/RYA_Video_Processing.dir/main.cpp.o.requires
 
 .PHONY : CMakeFiles/RYA_Video_Processing.dir/requires

@@ -46,11 +46,11 @@
 				<Compiler>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/local/include/opencv"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
@@ -70,11 +70,11 @@
 				<Compiler>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/local/include/opencv"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
@@ -86,10 +86,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/Object.cpp">
+			<Option target="RYA_Video_Processing"/>
+		</Unit>
+		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/Object.h">
+			<Option target="RYA_Video_Processing"/>
+		</Unit>
 		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/lib/TCPClient/TCPClient.cpp">
 			<Option target="RYA_Video_Processing"/>
 		</Unit>
 		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/lib/TCPClient/TCPClient.h">
+			<Option target="RYA_Video_Processing"/>
+		</Unit>
+		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/lib/Utility/utility.cpp">
+			<Option target="RYA_Video_Processing"/>
+		</Unit>
+		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/lib/Utility/utility.h">
 			<Option target="RYA_Video_Processing"/>
 		</Unit>
 		<Unit filename="/home/thienvu/Documents/RYA2017_Image_Processing/main.cpp">
