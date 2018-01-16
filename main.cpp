@@ -12,19 +12,17 @@ using namespace std;
 bool calibrationMode = false;
 
 int H_MIN = 0;
-int H_MAX = 256;
+int H_MAX = 255;
 int S_MIN = 0;
-int S_MAX = 256;
+int S_MAX = 255;
 int V_MIN = 0;
-int V_MAX = 256;
+int V_MAX = 255;
 
 const int FRAME_WIDTH = 213;
 const int FRAME_HEIGHT = 160;
-const float INV_SCALE_FACTOR = 640 / FRAME_WIDTH;
 
 const int MAX_NUM_OBJECTS = 5;
 const int MIN_OBJECT_AREA = FRAME_HEIGHT * FRAME_WIDTH / 25;
-const int MAX_OBJECT_AREA = FRAME_HEIGHT * FRAME_WIDTH / 1.5;
 
 const string windowName = "Original Image";
 const string windowName1 = "HSV Image";
@@ -68,14 +66,14 @@ int main()
         createTrackbars();
     }
 
-    capture.open(1);
+    capture.open(0);
     if (!capture.isOpened()) return EXIT_FAILURE;
 
-    capture.set(CV_CAP_PROP_FPS, 30);
+    //capture.set(CV_CAP_PROP_FPS, 30);
     capture.set(CV_CAP_PROP_FRAME_WIDTH, FRAME_WIDTH);
     capture.set(CV_CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT);
 
-    //if (!tcp.setup("127.0.0.1", 11999)) return EXIT_FAILURE;
+    if (!tcp.setup("127.0.0.1", 11999)) return EXIT_FAILURE;
 
     time(&start);
     for (;;)
@@ -106,12 +104,12 @@ int main()
         else
         {
             cvtColor(cameraFeed, HSV, COLOR_BGR2HSV);
-            inRange(HSV, green.getHSVmin(), green.getHSVmax(), threshold);
+            inRange(HSV, blue.getHSVmin(), blue.getHSVmax(), threshold);
             morphOps(threshold);
 #ifdef __DEBUG__
             imshow(windowName2, threshold);
 #endif
-            trackFilteredObject(red, threshold, HSV, cameraFeed);
+            trackFilteredObject(blue, threshold, HSV, cameraFeed);
         }
 #ifdef __DEBUG__
         imshow(windowName, cameraFeed);
@@ -202,7 +200,7 @@ void trackFilteredObject(Mat threshold, Mat HSV, Mat &cameraFeed) {
 
         if (numObjects < MAX_NUM_OBJECTS) {
             for (int index = 0; index >= 0; index = hierarchy[index][0]) {
-                Moments moment = moments((Mat) contours[index]);
+                Moments moment = moments(contours[index]);
                 double area = moment.m00;
 
                 if (area > MIN_OBJECT_AREA) {
@@ -233,7 +231,7 @@ void trackFilteredObject(Mat threshold, Mat HSV, Mat &cameraFeed) {
 void trackFilteredObject(Object theObject, Mat threshold, Mat HSV, Mat &cameraFeed) {
     int max_area_idx = 0;
     int max_area = 0;
-    //vector <Object> objects;
+
     Mat temp;
     threshold.copyTo(temp);
 
@@ -242,7 +240,8 @@ void trackFilteredObject(Object theObject, Mat threshold, Mat HSV, Mat &cameraFe
 
     findContours(temp, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE);
     //cout << contours.size() << endl;
-    for (unsigned int i = 0; i < contours.size(); i++) {
+    for (unsigned int i = 0; i < contours.size(); i++)
+    {
         int area = contourArea(contours.at(i));
         if (area > max_area) {
             max_area = area;
@@ -250,7 +249,8 @@ void trackFilteredObject(Object theObject, Mat threshold, Mat HSV, Mat &cameraFe
         } else
             continue;
     }
-    if (max_area > MIN_OBJECT_AREA) {
+    if (max_area > MIN_OBJECT_AREA)
+    {
         uint32_t time;
         Moments mu;
         mu = moments(contours[max_area_idx], true);
@@ -261,6 +261,7 @@ void trackFilteredObject(Object theObject, Mat threshold, Mat HSV, Mat &cameraFe
 #ifdef __DEBUG__
         circle(cameraFeed, mc, 5, Scalar(255, 255, 255));
 #endif
-        //sendData(tcp, mc.x, mc.y);
+        sendData(tcp, mc.x, mc.y);
     }
+    else sendData(tcp, 6000, 6000);//OBJECT NOT FOUND
 }

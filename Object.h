@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <opencv/cv.h>
-//#include <highgui.h>
+
 using namespace std;
 using namespace cv;
 

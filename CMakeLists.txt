@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.5)
 project(RYA_Video_Processing)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 find_package(OpenCV REQUIRED)
 
 set(SOURCE_FILES lib/TCPClient/TCPClient.cpp lib/Utility/utility.cpp Object.cpp main.cpp)
